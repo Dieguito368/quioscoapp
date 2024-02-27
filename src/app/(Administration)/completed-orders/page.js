@@ -8,7 +8,7 @@ import { formatCuantity } from '@/helpers';
 const CompletedOrders = () => {
     const fetcher = () => axios('/api/completed-orders').then( data => data.data);
 
-    const { data: orders, error, isLoading } = useSWR('/api/completed-orders', fetcher);
+    const { data: orders, error, isLoading } = useSWR('/api/completed-orders', fetcher, { refreshInterval: 100 });
 
     return (
         <>
